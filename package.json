@@ -13,6 +13,9 @@
 	"license":     "ISC",
 	"engines":     {"node": ">=6"},
 	"dependencies": {
+		"serve-static": "^1.11.2",
+		"finalhandler": "^0.5.1",
+		"localtunnel": "^1.8.2"
 	},
 	"devDependencies": {
 	},
