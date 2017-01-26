@@ -15,10 +15,11 @@
 	"dependencies": {
 		"serve-static": "^1.11.2",
 		"finalhandler": "^0.5.1",
-		"localtunnel": "^1.8.2"
+		"localtunnel": "^1.8.2",
+		"wd": "^1.1.1",
+		"shoe": "^0.0.15"
 	},
 	"devDependencies": {
-		"shoe": "^0.0.15",
 		"console-redirect": "^1.0.0",
 		"source-map-support": "^0.4.10",
 		"browserify": "^14.0.0",
