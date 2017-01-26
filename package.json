@@ -17,7 +17,8 @@
 		"finalhandler": "^0.5.1",
 		"localtunnel": "^1.8.2",
 		"wd": "^1.1.1",
-		"shoe": "^0.0.15"
+		"shoe": "^0.0.15",
+		"stream-sink": "^2.0.0"
 	},
 	"devDependencies": {
 		"console-redirect": "^1.0.0",
