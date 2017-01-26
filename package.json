@@ -18,7 +18,14 @@
 		"localtunnel": "^1.8.2"
 	},
 	"devDependencies": {
+		"shoe": "^0.0.15",
+		"console-redirect": "^1.0.0",
+		"source-map-support": "^0.4.10",
+		"browserify": "^14.0.0",
+		"babelify": "^7.3.0",
+		"babel-preset-es2015": "^6.22.0"
 	},
 	"scripts": {
+		"build": "browserify -t [ babelify --presets [ es2015 ] ] lib/runner.js > lib/runner.bundle.js"
 	}
 }
