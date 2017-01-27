@@ -26,9 +26,14 @@
 		"browserify": "^14.0.0",
 		"babelify": "^7.3.0",
 		"babel-preset-es2015": "^6.22.0",
-		"uglify-js": "^2.7.5"
+		"uglify-js": "^2.7.5",
+		"is-browser": "^2.0.1",
+		"tap-min": "derhuerst/tap-min"
 	},
 	"scripts": {
-		"build": "browserify -t [ babelify --presets [ es2015 ] ] lib/runner.js | uglifyjs -cm > lib/runner.bundle.js"
+		"build": "browserify -t [ babelify --presets [ es2015 ] ] lib/runner.js | uglifyjs -cm > lib/runner.bundle.js",
+		"test-bundle": "browserify -t [ babelify --presets [ es2015 ] ] test/is-browser.js | uglifyjs -cm > test/is-browser.bundle.js",
+		"test-run": "cat test/is-browser.bundle.js | ./bin.js | tap-min",
+		"test": "npm run test-bundle && npm run test-run"
 	}
 }
