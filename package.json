@@ -17,16 +17,18 @@
 		"finalhandler": "^0.5.1",
 		"localtunnel": "^1.8.2",
 		"wd": "^1.1.1",
-		"shoe": "^0.0.15",
+		"websocket-stream": "^3.3.3",
 		"stream-sink": "^2.0.0"
 	},
 	"devDependencies": {
+		"readable-stream": "^2.2.2",
 		"console-redirect": "^1.0.0",
 		"source-map-support": "^0.4.10",
 		"browserify": "^14.0.0",
 		"babelify": "^7.3.0",
 		"babel-preset-es2015": "^6.22.0",
 		"uglify-js": "^2.7.5",
+		"tape": "^4.6.3",
 		"is-browser": "^2.0.1",
 		"tap-min": "derhuerst/tap-min"
 	},

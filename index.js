@@ -3,7 +3,8 @@
 const fs = require('fs')
 const path = require('path')
 const stream = require('stream')
-const shoe = require('shoe')
+const websocket = require('websocket-stream')
+const parser = require('tap-parser')
 
 const createServer = require('./lib/server')
 const createTunnel = require('./lib/tunnel')
@@ -27,9 +28,13 @@ const run = (opt = {}) => {
 		createServer(3000, runner, opt.tests, (err, server) => {
 			if (err) return out.emit('error', err)
 
-			shoe((tap) => { // receive TAP from client
+			// receive TAP from client
+			websocket.createServer({server}, (tap) => {
 				tap.pipe(out)
-			}).install(server, '/chutney')
+				tap.on('end', () => {
+					// todo
+				})
+			})
 
 			createSauce({
 				user: opt.user, key: opt.key,
