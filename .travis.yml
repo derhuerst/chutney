@@ -3,6 +3,7 @@ language: node_js
 node_js:
   - 'stable'
 script:
+  - npm run build
   - npm test
 env:
   global:
