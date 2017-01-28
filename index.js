@@ -21,6 +21,12 @@ const run = (opt = {}) => {
 
 	const out = new stream.PassThrough()
 
+	const connections = []
+	out.once('end', () => {
+		for (let connection of connections)
+			connection.destroy()
+	})
+
 	// todo: find port
 	createTunnel(3000, (err, tunnel) => {
 		if (err) return out.emit('error', err)
@@ -28,12 +34,15 @@ const run = (opt = {}) => {
 		createServer(3000, runner, opt.tests, (err, server) => {
 			if (err) return out.emit('error', err)
 
+			server.on('connection', (c) => connections.push(c))
+			out.once('end', () => {
+				server.close()
+			})
+
 			// receive TAP from client
 			websocket.createServer({server}, (tap) => {
 				tap.pipe(out)
-				tap.on('end', () => {
-					// todo
-				})
+				tap.once('end', () => tap.destroy())
 			})
 
 			createSauce({

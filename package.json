@@ -23,6 +23,7 @@
 	"devDependencies": {
 		"readable-stream": "^2.2.2",
 		"console-redirect": "^1.0.0",
+		"tap-parser": "^5.3.2",
 		"source-map-support": "^0.4.10",
 		"browserify": "^14.0.0",
 		"babelify": "^7.3.0",
