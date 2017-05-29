@@ -26,7 +26,7 @@ npm install chutney
 **chutney requires you to have [TAP-generating tests](https://en.wikipedia.org/wiki/Test_Anything_Protocol), which you bundle** e.g. using [Browserify](https://github.com/substack/node-browserify#readme). **You will also need a Sauce Labs account.**
 
 ```js
-# test.js
+// test.js
 const test = require('tape')
 const awesomeTool = require('.')
 

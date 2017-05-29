@@ -19,19 +19,19 @@ if (args === '-v' || args === '--version') {
 	process.exit(0)
 }
 
-const showError = (err, trace = true) => {
-	console.error(trace ? err : err.message)
+const showError = (err) => {
+	console.error(err.data || err)
 	process.exit(1)
 }
 
 if ('string' !== typeof process.env.SAUCE_USER)
-	showError('You must export SAUCE_USER.', false)
+	showError('You must export SAUCE_USER.')
 if ('string' !== typeof process.env.SAUCE_KEY)
-	showError('You must export SAUCE_KEY.', false)
+	showError('You must export SAUCE_KEY.')
 if ('string' !== typeof process.env.PLATFORM)
-	showError('You must export PLATFORM.', false)
+	showError('You must export PLATFORM.')
 if ('string' !== typeof process.env.BROWSER)
-	showError('You must export BROWSER.', false)
+	showError('You must export BROWSER.')
 
 process.stdin
 .pipe(sink())
