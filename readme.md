@@ -1,6 +1,6 @@
 # chutney
 
-**Run tape tests at Sauce Labs.** A more opinionated [smokestack](https://github.com/hughsk/smokestack).
+**Run [TAP](https://en.wikipedia.org/wiki/Test_Anything_Protocol) tests at Sauce Labs.** A more opinionated [smokestack](https://github.com/hughsk/smokestack).
 
 [![npm version](https://img.shields.io/npm/v/chutney.svg)](https://www.npmjs.com/package/chutney)
 [![build status](https://img.shields.io/travis/derhuerst/chutney.svg)](https://travis-ci.org/derhuerst/chutney)
@@ -9,9 +9,7 @@
 ![ISC-licensed](https://img.shields.io/github/license/derhuerst/chutney.svg)
 [![chat on gitter](https://badges.gitter.im/derhuerst.svg)](https://gitter.im/derhuerst)
 
-**This tool exposes the test runner with your tests using [localtunnel](#https://github.com/localtunnel/localtunnel#readme), opens them in a [Webdriver](https://www.w3.org/TR/webdriver/)-controlled browser from [Sauce Labs](https://saucelabs.com/) and pipes their output to stdout.**
-
-Compared to [smokestack](https://github.com/hughsk/smokestack), chutney is more lightweight because it can runy tests only on remote browsers. It is less battle-proven and has less niche features.
+**This tool exposes the test runner with your tests using [localtunnel](https://github.com/localtunnel/localtunnel#readme), opens them in a [Webdriver](https://www.w3.org/TR/webdriver/)-controlled browser from [Sauce Labs](https://saucelabs.com/) and pipes their output to `stdout`.** It is is heavily inspired by [smokestack](https://github.com/hughsk/smokestack), but more lightweight because it can runy tests only on remote browsers. It is less battle-proven and has less niche features.
 
 
 ## Installing
@@ -23,7 +21,7 @@ npm install chutney
 
 ## Usage
 
-**chutney requires you to have [TAP-generating tests](https://en.wikipedia.org/wiki/Test_Anything_Protocol), which you bundle** e.g. using [Browserify](https://github.com/substack/node-browserify#readme). **You will also need a Sauce Labs account.**
+**chutney requires you to have [TAP-generating tests](https://en.wikipedia.org/wiki/Test_Anything_Protocol), which you bundle** e.g. using [Browserify](https://github.com/substack/node-browserify#readme). **You will also need a [Sauce Labs](https://saucelabs.com/) account.**
 
 ```js
 // test.js
