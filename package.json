@@ -1,17 +1,32 @@
 {
-	"name":        "chutney",
+	"name": "chutney",
 	"description": "Run tape tests at Sauce Labs.",
-	"version":     "0.1.0",
-	"main":        "index.js",
-	"bin":         {"chutney": "bin.js"},
-	"files":       ["index.js", "lib/*.js", "bin.js"],
-	"keywords":    ["sauce", "labs", "test", "browser", "chrome", "pipe"],
-	"author":      "Jannis R <mail@jannisr.de>",
-	"homepage":    "https://github.com/derhuerst/chutney",
-	"repository":  "derhuerst/chutney",
-	"bugs":        "https://github.com/derhuerst/chutney/issues",
-	"license":     "ISC",
-	"engines":     {"node": ">=6"},
+	"version": "0.1.0",
+	"main": "index.js",
+	"bin": {
+		"chutney": "bin.js"
+	},
+	"files": [
+		"index.js",
+		"lib/*.js",
+		"bin.js"
+	],
+	"keywords": [
+		"sauce",
+		"labs",
+		"test",
+		"browser",
+		"chrome",
+		"pipe"
+	],
+	"author": "Jannis R <mail@jannisr.de>",
+	"homepage": "https://github.com/derhuerst/chutney",
+	"repository": "derhuerst/chutney",
+	"bugs": "https://github.com/derhuerst/chutney/issues",
+	"license": "ISC",
+	"engines": {
+		"node": ">=6"
+	},
 	"dependencies": {
 		"debug": "^2.6.8",
 		"finalhandler": "^1.0.3",
