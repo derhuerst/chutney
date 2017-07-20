@@ -1,14 +1,14 @@
 {
 	"name": "chutney",
 	"description": "Run tape tests at Sauce Labs.",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"main": "index.js",
 	"bin": {
 		"chutney": "bin.js"
 	},
 	"files": [
 		"index.js",
-		"lib/*.js",
+		"lib/*",
 		"bin.js"
 	],
 	"keywords": [
