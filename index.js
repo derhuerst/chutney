@@ -7,6 +7,7 @@ const stream = require('stream')
 const websocket = require('websocket-stream')
 const parser = require('tap-parser')
 
+const onFinish = require('./lib/tap-on-finish')
 const createServer = require('./lib/server')
 const createTunnel = require('./lib/tunnel')
 const createSauce = require('./lib/sauce')
@@ -22,32 +23,40 @@ const run = (opt = {}) => {
 
 	const out = new stream.PassThrough()
 
-	const connections = []
-	out.once('end', () => {
-		for (let connection of connections)
-			connection.destroy()
-	})
+	const httpConnections = []
+	const wsConnections = []
 
 	debug('creating tunnel')
 	// todo: find port
 	createTunnel(3000, (err, tunnel) => {
 		if (err) return out.emit('error', err)
+		out.once('end', () => tunnel.close())
 
 		debug('creating HTTP server')
 		createServer(3000, runner, opt.tests, (err, server) => {
 			if (err) return out.emit('error', err)
 
-			server.on('connection', (c) => connections.push(c))
+			const httpConnections = []
+			server.on('connection', (c) => httpConnections.push(c))
 			out.once('end', () => {
+				for (let connection of httpConnections) connection.destroy()
 				server.close()
 			})
 
 			debug('creating WS server')
+			const wsConnections = []
+			out.once('end', () => {
+				for (let tap of wsConnections) {
+					tap.unpipe(out)
+					tap.destroy()
+				}
+			})
+
 			// receive TAP from client
 			websocket.createServer({server}, (tap) => {
 				debug('WS connection!')
+				wsConnections.push(tap)
 				tap.pipe(out)
-				tap.once('end', () => tap.destroy())
 			})
 
 			debug('creating SauceLabs tunnel')
