@@ -1,5 +1,6 @@
 'use strict'
 
+const debug = require('debug')('chutney')
 const fs = require('fs')
 const path = require('path')
 const stream = require('stream')
@@ -27,10 +28,12 @@ const run = (opt = {}) => {
 			connection.destroy()
 	})
 
+	debug('creating tunnel')
 	// todo: find port
 	createTunnel(3000, (err, tunnel) => {
 		if (err) return out.emit('error', err)
 
+		debug('creating HTTP server')
 		createServer(3000, runner, opt.tests, (err, server) => {
 			if (err) return out.emit('error', err)
 
@@ -39,12 +42,15 @@ const run = (opt = {}) => {
 				server.close()
 			})
 
+			debug('creating WS server')
 			// receive TAP from client
 			websocket.createServer({server}, (tap) => {
+				debug('WS connection!')
 				tap.pipe(out)
 				tap.once('end', () => tap.destroy())
 			})
 
+			debug('creating SauceLabs tunnel')
 			createSauce({
 				user: opt.user, key: opt.key,
 				platform: opt.platform, browser: opt.browser,
