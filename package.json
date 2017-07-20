@@ -47,7 +47,7 @@
 		"tap-min": "^1.2.1",
 		"tap-parser": "^5.3.3",
 		"tape": "^4.6.3",
-		"uglify-js": "^2.8.27"
+		"uglify-es": "^3.0.25"
 	},
 	"scripts": {
 		"build": "browserify -t [ babelify --presets [ es2015 ] ] lib/runner.js | uglifyjs -cm > lib/runner.bundle.js",
