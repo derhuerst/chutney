@@ -60,13 +60,15 @@ const run = (opt = {}) => {
 			})
 
 			debug('creating SauceLabs tunnel')
-			createSauce({
+			const driver = createSauce({
 				user: opt.user, key: opt.key,
 				platform: opt.platform, browser: opt.browser,
 				url: tunnel.url
 			}, (err) => {
 				if (err) return out.emit('error', err)
 			})
+
+			out.emit('driver', driver)
 		})
 	})
 
