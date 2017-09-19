@@ -33,6 +33,7 @@
 		"localtunnel": "^1.8.2",
 		"serve-static": "^1.12.3",
 		"stream-sink": "^2.1.0",
+		"tap-parser": "^5.4.0",
 		"wd": "^1.2.0",
 		"websocket-stream": "^5.0.0"
 	},
@@ -45,7 +46,6 @@
 		"readable-stream": "^2.2.9",
 		"source-map-support": "^0.4.15",
 		"tap-min": "^1.2.1",
-		"tap-parser": "^5.3.3",
 		"tape": "^4.6.3",
 		"uglify-es": "^3.0.25"
 	},
