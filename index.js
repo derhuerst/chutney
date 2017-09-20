@@ -30,6 +30,7 @@ const run = (opt = {}) => {
 	// todo: find port
 	createTunnel(3000, (err, tunnel) => {
 		if (err) return out.emit('error', err)
+		tunnel.on('error', err => out.emit('error', err))
 		out.once('end', () => tunnel.close())
 
 		debug('creating HTTP server')
