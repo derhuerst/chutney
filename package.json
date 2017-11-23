@@ -1,7 +1,7 @@
 {
 	"name": "chutney",
 	"description": "Run tape tests at Sauce Labs.",
-	"version": "0.2.4",
+	"version": "0.2.5",
 	"main": "index.js",
 	"bin": {
 		"chutney": "bin.js"
@@ -50,8 +50,8 @@
 		"uglify-es": "^3.1.10"
 	},
 	"scripts": {
-		"build": "browserify -t [ babelify --presets [ env ] ] lib/runner.js | uglifyjs -cm > lib/runner.bundle.js",
-		"test-bundle": "browserify -t [ babelify --presets [ env ] ] test/is-browser.js | uglifyjs -cm > test/is-browser.bundle.js",
+		"build": "browserify -g [ babelify --presets [ env ] ] lib/runner.js | uglifyjs -cm > lib/runner.bundle.js",
+		"test-bundle": "browserify -g [ babelify --presets [ env ] ] test/is-browser.js | uglifyjs -cm > test/is-browser.bundle.js",
 		"test-run": "cat test/is-browser.bundle.js | ./bin.js | tap-min",
 		"test": "npm run test-bundle && npm run test-run"
 	}
