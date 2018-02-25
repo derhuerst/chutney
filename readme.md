@@ -18,7 +18,7 @@ npm install chutney
 ```
 
 
-## Usage
+## Guide
 
 **chutney requires you to have [TAP-generating tests](https://en.wikipedia.org/wiki/Test_Anything_Protocol), which you bundle** e.g. using [Browserify](https://github.com/substack/node-browserify#readme). **You will also need a [Sauce Labs](https://saucelabs.com/) account.**
 
@@ -46,6 +46,20 @@ Now run the tests. You may pretty-print the results using [any reporter](https:/
 
 ```shell
 browserify test.js | chutney | tap-spec
+```
+
+
+## Usage
+
+```
+Usage:
+    chutney [--timeout <seconds>]
+
+Options:
+    --timeout  -t  Set the timeout in seconds. Default: 20
+
+Examples:
+    browserify test.js | chutney | tap-spec
 ```
 
 

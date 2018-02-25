@@ -1,21 +1,34 @@
 #!/usr/bin/env node
 'use strict'
 
+const mri = require('mri')
 const sink = require('stream-sink')
 
-const pkg = require('./package.json')
+const {version} = require('./package.json')
 const run = require('.')
-// const run = require('./dummy-runner')
 
-const args = process.argv.slice(2).join(' ').trim()
+const argv = mri(process.argv.slice(2), {
+	boolean: [
+		'help', 'h',
+		'version', 'v'
+	]
+})
 
-if (args === '-h' || args === '--help') {
-	process.stdout.write(pkg.description + '\n')
-	// todo
+if (argv.help || argv.h) {
+	process.stdout.write(`
+Usage:
+    chutney [--timeout <seconds>]
+
+Options:
+    --timeout  -t  Set the timeout in seconds. Default: 20
+
+Examples:
+    browserify test.js | chutney | tap-spec
+\n`)
 	process.exit(0)
 }
-if (args === '-v' || args === '--version') {
-	process.stdout.write(pkg.version + '\n')
+if (argv.version || argv.v) {
+	process.stdout.write(version + '\n')
 	process.exit(0)
 }
 
@@ -24,14 +37,24 @@ const showError = (err) => {
 	process.exit(1)
 }
 
-if ('string' !== typeof process.env.SAUCE_USER)
+if ('string' !== typeof process.env.SAUCE_USER) {
 	showError('You must export SAUCE_USER.')
-if ('string' !== typeof process.env.SAUCE_KEY)
+}
+if ('string' !== typeof process.env.SAUCE_KEY) {
 	showError('You must export SAUCE_KEY.')
-if ('string' !== typeof process.env.PLATFORM)
+}
+if ('string' !== typeof process.env.PLATFORM) {
 	showError('You must export PLATFORM.')
-if ('string' !== typeof process.env.BROWSER)
+}
+if ('string' !== typeof process.env.BROWSER) {
 	showError('You must export BROWSER.')
+}
+
+let timeout
+if (argv.timeout || argv.t) {
+	timeout = parseInt(argv.timeout || argv.t)
+	if (Number.isNaN(timeout)) showError('Timeout must be a number.')
+}
 
 process.stdin
 .pipe(sink())
@@ -39,8 +62,10 @@ process.stdin
 	run({
 		user: process.env.SAUCE_USER, key: process.env.SAUCE_KEY,
 		platform: process.env.PLATFORM, browser: process.env.BROWSER,
+		timeout,
 		tests
 	})
-	.on('error', showError)
+	.once('error', showError)
 	.pipe(process.stdout)
 })
+.catch(showError)
