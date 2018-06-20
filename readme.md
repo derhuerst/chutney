@@ -10,6 +10,8 @@
 
 **This tool exposes the test runner with your tests using [localtunnel](https://github.com/localtunnel/localtunnel#readme), opens them in a [Webdriver](https://www.w3.org/TR/webdriver/)-controlled browser from [Sauce Labs](https://saucelabs.com/) and pipes their output to `stdout`.** It is is heavily inspired by [smokestack](https://github.com/hughsk/smokestack), but more lightweight because it will run the tests only on *remote* browsers. It is less battle-proven and has less niche features.
 
+[airtap](https://github.com/airtap/airtap) is a another, well-known alternative.
+
 
 ## Installing
 
