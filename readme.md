@@ -1,6 +1,6 @@
 # chutney
 
-**Run [TAP](https://en.wikipedia.org/wiki/Test_Anything_Protocol) tests at Sauce Labs.** A more opinionated [smokestack](https://github.com/hughsk/smokestack).
+**Run [TAP](https://en.wikipedia.org/wiki/Test_Anything_Protocol) tests at Sauce Labs.** A more opinionated [smokestack](https://github.com/hughsk/smokestack). [airtap](https://github.com/airtap/airtap) is a another, well-known alternative.
 
 [![npm version](https://img.shields.io/npm/v/chutney.svg)](https://www.npmjs.com/package/chutney)
 [![build status](https://img.shields.io/codeship/9cea8f70-b28e-0135-65f0-768b43f5dae4/master.svg)](https://app.codeship.com/projects/258106)
@@ -8,9 +8,11 @@
 [![chat on gitter](https://badges.gitter.im/derhuerst.svg)](https://gitter.im/derhuerst)
 [![support me on Patreon](https://img.shields.io/badge/support%20me-on%20patreon-fa7664.svg)](https://patreon.com/derhuerst)
 
-**This tool exposes the test runner with your tests using [localtunnel](https://github.com/localtunnel/localtunnel#readme), opens them in a [Webdriver](https://www.w3.org/TR/webdriver/)-controlled browser from [Sauce Labs](https://saucelabs.com/) and pipes their output to `stdout`.** It is is heavily inspired by [smokestack](https://github.com/hughsk/smokestack), but more lightweight because it will run the tests only on *remote* browsers. It is less battle-proven and has less niche features.
+1. Using [localtunnel](https://github.com/localtunnel/localtunnel#readme), **exposes the test runner HTML page with your tests**,
+2. **opens its URL in a [Webdriver](https://www.w3.org/TR/webdriver/)-controlled browser at [Sauce Labs](https://saucelabs.com/)**,
+3. **pipes their output to `stdout`**, so that you can use it as a drop-in replacement for `node test.js`.
 
-[airtap](https://github.com/airtap/airtap) is a another, well-known alternative.
+It is is heavily inspired by [smokestack](https://github.com/hughsk/smokestack), but more lightweight because it will run the tests only on *remote* browsers. It is less battle-proven and has less niche features.
 
 
 ## Installing
