@@ -28,7 +28,7 @@
 		"node": ">=6"
 	},
 	"dependencies": {
-		"debug": "^3.1.0",
+		"debug": "^4.1.1",
 		"finalhandler": "^1.1.0",
 		"localtunnel": "^1.8.3",
 		"mri": "^1.1.0",
@@ -39,21 +39,21 @@
 		"websocket-stream": "^5.1.1"
 	},
 	"devDependencies": {
-		"babel-core": "^6.26.0",
-		"babel-preset-env": "^1.6.0",
-		"babelify": "^8.0.0",
+		"@babel/core": "^7.4.0",
+		"@babel/preset-env": "^7.4.1",
+		"babelify": "^10.0.0",
 		"browserify": "^16.2.2",
 		"console-redirect": "^1.0.0",
 		"is-in-browser": "^1.1.3",
-		"readable-stream": "^2.3.3",
+		"readable-stream": "^3.2.0",
 		"source-map-support": "^0.5.3",
 		"tap-min": "^1.2.2",
 		"tape": "^4.8.0",
 		"uglify-es": "^3.3.8"
 	},
 	"scripts": {
-		"build": "browserify -g [ babelify --presets [ env ] ] lib/runner.js | uglifyjs -cm > lib/runner.bundle.js",
-		"test-bundle": "browserify -g [ babelify --presets [ env ] ] test/is-browser.js | uglifyjs -cm > test/is-browser.bundle.js",
+		"build": "browserify -g [ babelify --presets [ @babel/preset-env ] ] lib/runner.js | uglifyjs -cm > lib/runner.bundle.js",
+		"test-bundle": "browserify -g [ babelify --presets [ @babel/preset-env ] ] test/is-browser.js | uglifyjs -cm > test/is-browser.bundle.js",
 		"test-run": "cat test/is-browser.bundle.js | ./bin.js | tap-min",
 		"test": "npm run test-bundle && npm run test-run"
 	}
