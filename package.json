@@ -53,7 +53,7 @@
 	},
 	"scripts": {
 		"build": "browserify -g [ babelify --presets [ @babel/preset-env ] ] lib/runner.js | uglifyjs -cm > lib/runner.bundle.js",
-		"test-bundle": "browserify -g [ babelify --presets [ @babel/preset-env ] ] test/is-browser.js | uglifyjs -cm > test/is-browser.bundle.js",
+		"test-bundle": "browserify -g [ babelify --presets [ @babel/preset-env ] ] test/is-browser.js >test/is-browser.bundle.js",
 		"test-run": "cat test/is-browser.bundle.js | ./bin.js | tap-min",
 		"test": "npm run test-bundle && npm run test-run"
 	}
