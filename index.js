@@ -25,6 +25,13 @@ const run = (opt = {}) => {
 	} else opt.timeout = 20 * 1000
 
 	const out = new stream.PassThrough()
+	const emitError = (err) => {
+		out.emit('error', err)
+		if (opt.bailout !== false && !out._writableState.ended) {
+			const msg = err && err.message || (err + '')
+			out.write('Bail out! ' + msg)
+		}
+	}
 
 	const httpConnections = []
 	const wsConnections = []
@@ -32,13 +39,13 @@ const run = (opt = {}) => {
 	debug('creating tunnel')
 	// todo: find port
 	createTunnel(3000, (err, tunnel) => {
-		if (err) return out.emit('error', err)
-		tunnel.on('error', err => out.emit('error', err))
+		if (err) return emitError(err)
+		tunnel.on('error', err => emitError(err))
 		out.once('end', () => tunnel.close())
 
 		debug('creating HTTP server')
 		createServer(3000, runner, opt.tests, (err, server) => {
-			if (err) return out.emit('error', err)
+			if (err) return emitError(err)
 
 			const httpConnections = []
 			const wsConnections = []
@@ -91,7 +98,7 @@ const run = (opt = {}) => {
 				platform: opt.platform, browser: opt.browser,
 				url: tunnel.url
 			}, (err) => {
-				if (err) return out.emit('error', err)
+				if (err) return emitError(err)
 			})
 
 			out.emit('driver', driver)
