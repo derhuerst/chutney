@@ -1,7 +1,7 @@
 {
 	"name": "chutney",
 	"description": "Run tape tests at Sauce Labs.",
-	"version": "0.2.9",
+	"version": "0.2.10",
 	"main": "index.js",
 	"bin": {
 		"chutney": "bin.js"
@@ -34,7 +34,7 @@
 		"mri": "^1.1.0",
 		"serve-static": "^1.13.1",
 		"stream-sink": "^2.1.0",
-		"tap-parser": "^7.0.0",
+		"tap-parser": "^9.3.3",
 		"wd": "^1.10.3",
 		"websocket-stream": "^5.1.1"
 	},
