@@ -38,8 +38,8 @@ const run = (opt = {}) => {
 
 	debug('creating tunnel')
 	// todo: find port
-	createTunnel(3000, (err, tunnel) => {
-		if (err) return emitError(err)
+	createTunnel(3000)
+	.then((tunnel) => {
 		tunnel.on('error', err => emitError(err))
 		out.once('end', () => tunnel.close())
 
@@ -104,6 +104,7 @@ const run = (opt = {}) => {
 			out.emit('driver', driver)
 		})
 	})
+	.catch(emitError)
 
 	return out
 }

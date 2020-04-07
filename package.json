@@ -1,7 +1,7 @@
 {
 	"name": "chutney",
 	"description": "Run tape tests at Sauce Labs.",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"main": "index.js",
 	"bin": {
 		"chutney": "bin.js"
@@ -25,12 +25,12 @@
 	"bugs": "https://github.com/derhuerst/chutney/issues",
 	"license": "ISC",
 	"engines": {
-		"node": ">=8"
+		"node": ">=8.3.0"
 	},
 	"dependencies": {
 		"debug": "^4.1.1",
 		"finalhandler": "^1.1.0",
-		"localtunnel": "^1.8.3",
+		"localtunnel": "^2.0.0",
 		"mri": "^1.1.0",
 		"serve-static": "^1.13.1",
 		"stream-sink": "^2.1.0",
