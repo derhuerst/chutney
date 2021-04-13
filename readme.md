@@ -5,8 +5,8 @@
 [![npm version](https://img.shields.io/npm/v/chutney.svg)](https://www.npmjs.com/package/chutney)
 [![build status](https://img.shields.io/codeship/9cea8f70-b28e-0135-65f0-768b43f5dae4/master.svg)](https://app.codeship.com/projects/258106)
 ![ISC-licensed](https://img.shields.io/github/license/derhuerst/chutney.svg)
-[![chat on gitter](https://badges.gitter.im/derhuerst.svg)](https://gitter.im/derhuerst)
-[![support me on Patreon](https://img.shields.io/badge/support%20me-on%20patreon-fa7664.svg)](https://patreon.com/derhuerst)
+[![support me via GitHub Sponsors](https://img.shields.io/badge/support%20me-donate-fa7664.svg)](https://github.com/sponsors/derhuerst)
+[![chat with me on Twitter](https://img.shields.io/badge/chat%20with%20me-on%20Twitter-1da1f2.svg)](https://twitter.com/derhuerst)
 
 1. Using [localtunnel](https://github.com/localtunnel/localtunnel#readme), **exposes the test runner HTML page with your tests**,
 2. **opens its URL in a [Webdriver](https://www.w3.org/TR/webdriver/)-controlled browser at [Sauce Labs](https://saucelabs.com/)**,

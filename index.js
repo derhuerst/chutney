@@ -14,6 +14,7 @@ const createSauce = require('./lib/sauce')
 
 const runner = fs.readFileSync(path.join(__dirname, 'lib/runner.bundle.js'), {encoding: 'utf8'})
 
+// todo: use async/await
 const run = (opt = {}) => {
 	if (!opt.user) throw new Error('You must specify a Sauce Labs user.')
 	if (!opt.key) throw new Error('You must specify a Sauce Labs access key.')
