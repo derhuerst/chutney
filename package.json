@@ -34,7 +34,6 @@
 		"mri": "^1.1.0",
 		"serve-static": "^1.13.1",
 		"stream-sink": "^2.1.0",
-		"tap-parser": "^9.3.3",
 		"wd": "^1.10.3",
 		"websocket-stream": "^5.1.1"
 	},
@@ -42,13 +41,14 @@
 		"@babel/core": "^7.4.0",
 		"@babel/preset-env": "^7.4.1",
 		"babelify": "^10.0.0",
-		"browserify": "^16.2.2",
+		"browserify": "^17.0.0",
 		"console-redirect": "^1.0.0",
-		"is-in-browser": "^1.1.3",
+		"is-in-browser": "^2.0.0",
 		"readable-stream": "^3.2.0",
 		"source-map-support": "^0.5.3",
 		"tap-min": "^2.0.0",
-		"tape": "^4.8.0",
+		"tap-parser": "^10.1.0",
+		"tape": "^5.2.2",
 		"uglify-es": "^3.3.8"
 	},
 	"scripts": {
