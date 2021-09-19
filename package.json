@@ -30,7 +30,7 @@
 	"dependencies": {
 		"debug": "^4.1.1",
 		"finalhandler": "^1.1.0",
-		"localtunnel": "^2.0.0",
+		"localtunnel": "^2.0.2",
 		"mri": "^1.1.0",
 		"serve-static": "^1.13.1",
 		"stream-sink": "^2.1.0",
