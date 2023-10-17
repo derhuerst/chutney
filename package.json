@@ -47,7 +47,7 @@
 		"readable-stream": "^3.2.0",
 		"source-map-support": "^0.5.3",
 		"tap-min": "^2.0.0",
-		"tap-parser": "^10.1.0",
+		"tap-parser": "^11.0.2",
 		"tape": "^5.2.2",
 		"uglify-es": "^3.3.8"
 	},
