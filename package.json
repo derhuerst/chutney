@@ -43,6 +43,7 @@
 		"babelify": "^10.0.0",
 		"browserify": "^17.0.0",
 		"console-redirect": "^1.0.0",
+		"eslint": "^8.55.0",
 		"is-in-browser": "^2.0.0",
 		"readable-stream": "^3.2.0",
 		"source-map-support": "^0.5.3",
@@ -52,10 +53,11 @@
 		"uglify-es": "^3.3.8"
 	},
 	"scripts": {
+		"lint": "eslint .",
 		"build": "browserify -g [ babelify --presets [ @babel/preset-env ] ] lib/runner.js | uglifyjs -cm > lib/runner.bundle.js",
 		"test-bundle": "browserify -g [ babelify --presets [ @babel/preset-env ] ] test/is-browser.js >test/is-browser.bundle.js",
 		"test-run": "cat test/is-browser.bundle.js | ./bin.js | tap-min",
 		"test": "npm run build && npm run test-bundle && npm run test-run",
-		"prepublishOnly": "npm run test"
+		"prepublishOnly": "npm run lint && npm run test"
 	}
 }
