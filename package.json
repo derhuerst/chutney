@@ -45,10 +45,10 @@
 		"console-redirect": "^1.0.0",
 		"eslint": "^8.55.0",
 		"is-in-browser": "^2.0.0",
-		"readable-stream": "^3.2.0",
+		"readable-stream": "^4.4.2",
 		"source-map-support": "^0.5.3",
-		"tap-min": "^2.0.0",
-		"tap-parser": "^11.0.2",
+		"tap-min": "^3.0.0",
+		"tap-parser": "^15.3.1",
 		"tape": "^5.2.2",
 		"uglify-es": "^3.3.8"
 	},
