@@ -38,16 +38,16 @@ const showError = (err) => {
 }
 
 if ('string' !== typeof process.env.SAUCE_USER) {
-	showError('You must export SAUCE_USER.')
+	showError('You must export $SAUCE_USER.')
 }
 if ('string' !== typeof process.env.SAUCE_KEY) {
-	showError('You must export SAUCE_KEY.')
+	showError('You must export $SAUCE_KEY.')
 }
 if ('string' !== typeof process.env.PLATFORM) {
-	showError('You must export PLATFORM.')
+	showError('You must export $PLATFORM.')
 }
 if ('string' !== typeof process.env.BROWSER) {
-	showError('You must export BROWSER.')
+	showError('You must export $BROWSER.')
 }
 
 let timeout

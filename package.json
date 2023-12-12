@@ -1,7 +1,7 @@
 {
 	"name": "chutney",
 	"description": "Run tape tests at Sauce Labs.",
-	"version": "1.0.5",
+	"version": "2.0.0",
 	"main": "index.js",
 	"bin": {
 		"chutney": "bin.js"
